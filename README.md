@@ -1,4 +1,4 @@
-#Used for learning redux
+# Used for learning redux
 
 # Getting Started with Create React App
 
