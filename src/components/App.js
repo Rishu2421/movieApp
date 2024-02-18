@@ -2,6 +2,7 @@ import React from "react";
 import { data } from "../data";
 import Navbar from "./Navbar/Navbar.jsx";
 import MovieCard from "./MovieCard/MovieCard";
+import { addMovies } from "../actions/index.js";
 class App extends React.Component {
   componentDidMount(){
     //make api call
@@ -10,10 +11,7 @@ class App extends React.Component {
       console.log("Updated");
       this.forceUpdate();
     })
-    store.dispatch({
-      type:'ADD_MOVIES',
-      movies:data
-     })
+    store.dispatch(addMovies(data))
      console.log("New state",store.getState())
   }
   render(){
