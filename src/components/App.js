@@ -5,11 +5,16 @@ import MovieCard from "./MovieCard/MovieCard";
 class App extends React.Component {
   componentDidMount(){
     //make api call
-     this.props.store.dispatch({
+    const {store}=this.props; 
+    store.subscribe(()=>{
+      console.log("Updated");
+      this.forceUpdate();
+    })
+    store.dispatch({
       type:'ADD_MOVIES',
       movies:data
      })
-     console.log("New state",this.props.store.getState())
+     console.log("New state",store.getState())
   }
   render(){
     const movies = this.props.store.getState();
